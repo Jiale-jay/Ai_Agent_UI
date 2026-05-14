@@ -331,6 +331,7 @@
       text-align: right;
     }
 
+    .snapshot-grid,
     .capability-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -339,12 +340,14 @@
       border: 1px solid var(--line);
     }
 
+    .snapshot,
     .capability {
       min-height: 11rem;
       padding: 1.1rem;
       background: rgba(10, 13, 14, 0.72);
     }
 
+    .snapshot strong,
     .capability strong {
       display: block;
       margin-bottom: 1.8rem;
@@ -353,11 +356,16 @@
       font-weight: 650;
     }
 
+    .snapshot span,
     .capability span {
       display: block;
       color: rgba(238, 243, 237, 0.56);
       font-size: 0.88rem;
       line-height: 1.62;
+    }
+
+    .snapshot strong {
+      color: rgba(203, 255, 90, 0.82);
     }
 
     .work-grid {
@@ -370,7 +378,7 @@
 
     .work-card {
       position: relative;
-      min-height: 25rem;
+      min-height: 34rem;
       overflow: hidden;
       background: rgba(10, 12, 12, 0.78);
       isolation: isolate;
@@ -418,7 +426,7 @@
       position: absolute;
       inset: auto 0 0 0;
       display: grid;
-      gap: 0.85rem;
+      gap: 0.8rem;
       padding: 1.2rem;
       background: linear-gradient(to top, rgba(6, 7, 8, 0.94), rgba(6, 7, 8, 0));
     }
@@ -441,6 +449,30 @@
       color: rgba(238, 243, 237, 0.62);
       font-size: 0.9rem;
       line-height: 1.65;
+    }
+
+    .case-list {
+      display: grid;
+      gap: 0.45rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .case-list li {
+      display: grid;
+      grid-template-columns: 5.7rem 1fr;
+      gap: 0.72rem;
+      color: rgba(238, 243, 237, 0.58);
+      font-size: 0.8rem;
+      line-height: 1.45;
+    }
+
+    .case-list b {
+      color: rgba(203, 255, 90, 0.78);
+      font-size: 0.7rem;
+      font-weight: 650;
+      text-transform: uppercase;
     }
 
     .work-card:nth-child(1) {
@@ -503,6 +535,48 @@
       line-height: 1.68;
     }
 
+    .method-grid,
+    .fit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .method,
+    .fit {
+      min-height: 13rem;
+      padding: 1rem;
+      background: rgba(10, 13, 14, 0.74);
+    }
+
+    .method b,
+    .fit b {
+      display: block;
+      margin-bottom: 1.2rem;
+      color: rgba(203, 255, 90, 0.82);
+      font-size: 0.76rem;
+      font-weight: 650;
+      text-transform: uppercase;
+    }
+
+    .method strong,
+    .fit strong {
+      display: block;
+      margin-bottom: 0.7rem;
+      color: rgba(238, 243, 237, 0.88);
+      font-size: 1rem;
+      font-weight: 650;
+    }
+
+    .method span,
+    .fit span {
+      color: rgba(238, 243, 237, 0.6);
+      font-size: 0.88rem;
+      line-height: 1.62;
+    }
+
     .about-panel {
       display: grid;
       gap: 1.35rem;
@@ -551,6 +625,17 @@
       padding-left: 0.35rem;
     }
 
+    .resume-note {
+      margin: 0;
+      color: rgba(238, 243, 237, 0.46);
+      font-size: 0.82rem;
+      line-height: 1.55;
+    }
+
+    .resume-note code {
+      color: rgba(238, 243, 237, 0.72);
+    }
+
     footer {
       display: flex;
       justify-content: space-between;
@@ -562,10 +647,13 @@
     }
 
     @media (max-width: 920px) {
+      .snapshot-grid,
       .capability-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
+      .method-grid,
+      .fit-grid,
       .work-grid {
         grid-template-columns: 1fr;
       }
@@ -578,6 +666,8 @@
       }
 
       .nav-links {
+        flex-wrap: wrap;
+        justify-content: flex-end;
         gap: 0.72rem;
         font-size: 0.68rem;
       }
@@ -607,7 +697,7 @@
       }
 
       .work-card {
-        min-height: 21rem;
+        min-height: 31rem;
       }
 
       .field {
@@ -624,11 +714,13 @@
         font-size: 0.7rem;
       }
 
+      .snapshot-grid,
       .capability-grid {
         grid-template-columns: 1fr;
       }
 
       .signal-row,
+      .case-list li,
       .principle {
         grid-template-columns: 1fr;
         gap: 0.35rem;
@@ -665,6 +757,7 @@
       <div class="nav-links">
         <a href="#systems">Systems</a>
         <a href="#work">Builds</a>
+        <a href="#resume">Resume</a>
         <a href="#contact">Contact</a>
       </div>
     </nav>
@@ -681,12 +774,38 @@
             <p>我构建的不只是聊天机器人，而是能连接业务系统、执行任务、被评估、被监控、可安全上线的 AI agent。</p>
             <div class="actions">
               <a class="button primary" href="#work">查看项目</a>
+              <a class="button" href="#resume">查看简历</a>
               <a class="button" href="#contact">联系合作</a>
             </div>
             <div class="signal-panel" aria-label="Engineering focus">
               <div class="signal-row"><span>Loop</span><span>Plan → Tool Call → Observe → Recover → Report</span></div>
               <div class="signal-row"><span>Focus</span><span>Agents, MCP, RAG, Evals, Guardrails, Workflow Automation</span></div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="snapshot">
+        <div class="section-head">
+          <h2>Career Snapshot</h2>
+          <span>为招聘方快速回答：我是谁、能交付什么、为什么适合 AI agent 产品工程岗位。</span>
+        </div>
+        <div class="snapshot-grid">
+          <div class="snapshot">
+            <strong>Target Role</strong>
+            <span>AI Agent Product Engineer，偏端到端产品化、原型验证和工程落地。</span>
+          </div>
+          <div class="snapshot">
+            <strong>System Shape</strong>
+            <span>Tool-using agents, workflow orchestration, human-in-the-loop, observability.</span>
+          </div>
+          <div class="snapshot">
+            <strong>Core Stack</strong>
+            <span>OpenAI API, MCP, RAG, evals, browser automation, FastAPI / Next.js.</span>
+          </div>
+          <div class="snapshot">
+            <strong>Delivery Range</strong>
+            <span>From prototype to production: scope, build, test, monitor, iterate.</span>
           </div>
         </div>
       </section>
@@ -719,41 +838,103 @@
       <section class="section" id="work">
         <div class="section-head">
           <h2>Selected Builds</h2>
-          <span>项目卡片强调 agent 能做什么、连接了什么工具，以及如何被验证。</span>
+          <span>高质量占位 case study：不伪造真实数据，但把招聘方需要看的问题、行为、工具、评估和结果结构先搭好。</span>
         </div>
         <div class="work-grid">
           <article class="work-card">
             <div class="work-content">
               <span class="work-number">01 / Research Agent</span>
               <h3>带引用的研究代理</h3>
-              <p>自动浏览网页、提取证据、交叉验证信息，并生成可追溯的 Markdown 研究摘要。Tools: Browser, Search, OpenAI。</p>
+              <p>面向行业调研、竞品分析和技术选型的浏览器 agent，占位案例可替换为真实项目链接。</p>
+              <ul class="case-list">
+                <li><b>Problem</b><span>手动检索耗时，证据来源分散，结论难以复查。</span></li>
+                <li><b>Behavior</b><span>规划查询、浏览网页、提取证据、合并摘要并保留引用。</span></li>
+                <li><b>Tools</b><span>Browser, Search, OpenAI, Markdown report.</span></li>
+                <li><b>Evaluation</b><span>检查引用覆盖率、事实一致性、重复来源和不可证实结论。</span></li>
+                <li><b>Impact</b><span>Template: reduce manual research time by X% after real benchmark.</span></li>
+              </ul>
             </div>
           </article>
           <article class="work-card">
             <div class="work-content">
               <span class="work-number">02 / Ops Workflow Agent</span>
               <h3>运营工作流代理</h3>
-              <p>连接表格、邮件和内部 API，自动整理任务、识别异常、生成执行建议，并在高风险步骤请求确认。</p>
+              <p>面向重复运营流程的 task agent，强调权限、确认和失败恢复，而不是只做聊天入口。</p>
+              <ul class="case-list">
+                <li><b>Problem</b><span>跨表格、邮件和内部系统同步信息，人工容易漏项。</span></li>
+                <li><b>Behavior</b><span>读取输入、归类任务、识别异常、生成操作建议。</span></li>
+                <li><b>Tools</b><span>MCP, Sheets, Email, internal API, structured logs.</span></li>
+                <li><b>Evaluation</b><span>用任务完成率、误报率、人工确认次数衡量可靠性。</span></li>
+                <li><b>Impact</b><span>Template: save X hours/week for recurring workflow after pilot.</span></li>
+              </ul>
             </div>
           </article>
           <article class="work-card">
             <div class="work-content">
               <span class="work-number">03 / Code Review Agent</span>
               <h3>代码审查代理</h3>
-              <p>读取 PR diff、定位行为风险、提出可操作审查意见，并通过静态检查和测试结果校准判断。</p>
+              <p>面向工程团队的 PR review agent，重点是风险定位、可操作反馈和测试信号整合。</p>
+              <ul class="case-list">
+                <li><b>Problem</b><span>代码审查需要快速发现行为回归、遗漏测试和安全风险。</span></li>
+                <li><b>Behavior</b><span>读取 diff、定位风险、生成审查意见并引用文件位置。</span></li>
+                <li><b>Tools</b><span>GitHub API, static analysis, tests, LLM review rubric.</span></li>
+                <li><b>Evaluation</b><span>用真实 PR 回放评估命中率、噪声率和可执行性。</span></li>
+                <li><b>Impact</b><span>Template: improve review coverage on high-risk changes by X%.</span></li>
+              </ul>
             </div>
           </article>
         </div>
       </section>
 
+      <section class="section" id="method">
+        <div class="section-head">
+          <h2>How I Build Agents</h2>
+          <span>展示的不只是会调 API，而是能把 agent 设计成可测试、可观测、可上线的产品系统。</span>
+        </div>
+        <div class="method-grid">
+          <div class="method">
+            <b>01</b>
+            <strong>Define the job and failure modes</strong>
+            <span>先写清任务边界、成功标准、不可做事项和需要人工确认的动作。</span>
+          </div>
+          <div class="method">
+            <b>02</b>
+            <strong>Design tools as contracts</strong>
+            <span>为工具调用设计输入输出、权限范围、错误处理和审计日志。</span>
+          </div>
+          <div class="method">
+            <b>03</b>
+            <strong>Evaluate before scaling</strong>
+            <span>用回放数据、评估集和人工 review 校准 agent，而不是只看 demo 效果。</span>
+          </div>
+        </div>
+      </section>
+
       <section class="section principles" id="about">
         <h2>Build agents like systems, not magic tricks.</h2>
-        <div class="about-panel" id="contact">
+        <div class="about-panel" id="resume">
           <p>我关注 agent 的真实工程问题：任务边界是否清晰，工具权限是否可控，失败是否能恢复，输出是否可验证，以及系统是否能被持续迭代。</p>
           <div class="principle-list" aria-label="Engineering principles">
             <div class="principle"><b>01</b><span>先定义任务和失败模式，再决定 agent 架构。</span></div>
             <div class="principle"><b>02</b><span>可观测性、评估和日志不是上线后的补丁，而是设计的一部分。</span></div>
             <div class="principle"><b>03</b><span>权限、安全、人工确认和回滚路径必须内建。</span></div>
+          </div>
+          <div class="fit-grid" aria-label="Hiring fit">
+            <div class="fit">
+              <b>Fit</b>
+              <strong>Agent Product Engineer</strong>
+              <span>负责从用户问题、agent workflow 到可用产品体验的端到端落地。</span>
+            </div>
+            <div class="fit">
+              <b>Fit</b>
+              <strong>LLM Application Engineer</strong>
+              <span>构建 RAG、工具调用、评估和结构化输出的业务应用。</span>
+            </div>
+            <div class="fit">
+              <b>Fit</b>
+              <strong>Workflow Automation Engineer</strong>
+              <span>把重复业务流程变成有权限控制、可回放、可监控的自动化系统。</span>
+            </div>
           </div>
           <div class="stack" aria-label="Technology stack">
             <span>OpenAI API</span>
@@ -767,10 +948,15 @@
             <span>Next.js</span>
             <span>Docker</span>
           </div>
-          <div class="contact-links" aria-label="Contact links">
-            <a href="mailto:hello@example.com"><span>Email</span><span>hello@example.com</span></a>
-            <a href="#" aria-label="Visit GitHub placeholder"><span>GitHub</span><span>@agent-builder</span></a>
-            <a href="#" aria-label="Visit LinkedIn placeholder"><span>LinkedIn</span><span>/in/ai-agent-engineer</span></a>
+          <div class="actions">
+            <a class="button primary" href="#resume">View Resume</a>
+            <a class="button" href="#contact">Contact</a>
+          </div>
+          <p class="resume-note">Resume CTA is wired to this section for now. Add <code>resume.pdf</code> later or replace the button with your LinkedIn / Notion resume link.</p>
+          <div class="contact-links" id="contact" aria-label="Contact links">
+            <a href="mailto:hello@example.com"><span>Email</span><span>待替换：hello@example.com</span></a>
+            <a href="#" aria-label="Visit GitHub placeholder"><span>GitHub</span><span>待替换：@your-github</span></a>
+            <a href="#" aria-label="Visit LinkedIn placeholder"><span>LinkedIn</span><span>待替换：/in/your-profile</span></a>
           </div>
         </div>
       </section>
