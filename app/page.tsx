@@ -3,76 +3,76 @@ import { GrainCanvas } from "./components/GrainCanvas";
 const snapshots = [
   {
     title: "Target Role",
-    description: "AI Agent Product Engineer，偏端到端产品化、原型验证和工程落地。",
+    description: "AI Agent Product / Systems Engineer，关注从需求澄清、原型验证到工程落地的端到端交付。",
   },
   {
     title: "System Shape",
-    description: "Tool-using agents, workflow orchestration, human-in-the-loop, observability.",
+    description: "Tool-using agents, workflow orchestration, human-in-the-loop review, observability.",
   },
   {
     title: "Core Stack",
-    description: "OpenAI API, MCP, RAG, evals, browser automation, FastAPI / Next.js.",
+    description: "OpenAI API, Agents SDK, MCP, RAG, evals, browser automation, FastAPI / Next.js.",
   },
   {
     title: "Delivery Range",
-    description: "From prototype to production: scope, build, test, monitor, iterate.",
+    description: "从 demo 到可上线产品：定义边界、构建工具、测试行为、监控质量、持续迭代。",
   },
 ];
 
 const capabilities = [
   {
     title: "Tool Calling",
-    description: "让 agent 能安全连接浏览器、代码仓库、表格、邮件、数据库和内部 API。",
+    description: "为浏览器、代码仓库、表格、邮件、数据库和内部 API 设计清晰的工具契约、权限边界和错误返回。",
   },
   {
     title: "Workflow Orchestration",
-    description: "把复杂任务拆成可追踪步骤，支持人工确认、失败恢复和多轮执行。",
+    description: "把复杂任务拆成可追踪步骤，支持人工确认、失败恢复、状态续跑和多轮执行。",
   },
   {
     title: "RAG & Memory",
-    description: "围绕业务知识设计检索、上下文压缩、长期记忆和证据引用。",
+    description: "围绕业务知识设计检索、上下文压缩、长期记忆和证据引用，让输出可追溯而不是只看起来合理。",
   },
   {
     title: "Evals & Guardrails",
-    description: "用评估集、日志和约束把 agent 从 demo 推向可维护的产品体验。",
+    description: "用评估集、结构化日志、约束策略和人工 review，把 agent 从演示推进到可维护的产品体验。",
   },
 ];
 
 const projects = [
   {
     eyebrow: "01 / Research Agent",
-    title: "带引用的研究代理",
-    description: "面向行业调研、竞品分析和技术选型的浏览器 agent，占位案例可替换为真实项目链接。",
+    title: "Citation-first Research Agent",
+    description: "面向行业调研、竞品分析和技术选型的浏览器 agent 模板，强调证据链、引用质量和结论复查。",
     details: [
-      ["Problem", "手动检索耗时，证据来源分散，结论难以复查。"],
-      ["Behavior", "规划查询、浏览网页、提取证据、合并摘要并保留引用。"],
-      ["Tools", "Browser, Search, OpenAI, Markdown report."],
-      ["Evaluation", "检查引用覆盖率、事实一致性、重复来源和不可证实结论。"],
-      ["Impact", "Template: reduce manual research time by X% after real benchmark."],
+      ["Problem", "手动检索耗时，来源分散，结论难复查，招聘方也很难判断 agent 是否真的可靠。"],
+      ["Solution", "规划查询、浏览页面、提取证据、合并摘要，并在最终报告中保留来源与待验证假设。"],
+      ["Stack", "Browser automation, Search, OpenAI API, structured notes, Markdown report."],
+      ["Evaluation", "检查引用覆盖率、事实一致性、重复来源、不可证实结论和遗漏的反例。"],
+      ["Next step", "替换为真实调研主题、报告链接和人工 benchmark 后，再填写节省时间或准确率指标。"],
     ],
   },
   {
     eyebrow: "02 / Ops Workflow Agent",
-    title: "运营工作流代理",
-    description: "面向重复运营流程的 task agent，强调权限、确认和失败恢复，而不是只做聊天入口。",
+    title: "Human-reviewed Ops Workflow Agent",
+    description: "面向重复运营流程的 task agent 模板，重点展示权限控制、人工确认和失败恢复，而不是只做聊天入口。",
     details: [
-      ["Problem", "跨表格、邮件和内部系统同步信息，人工容易漏项。"],
-      ["Behavior", "读取输入、归类任务、识别异常、生成操作建议。"],
-      ["Tools", "MCP, Sheets, Email, internal API, structured logs."],
-      ["Evaluation", "用任务完成率、误报率、人工确认次数衡量可靠性。"],
-      ["Impact", "Template: save X hours/week for recurring workflow after pilot."],
+      ["Problem", "表格、邮件和内部系统之间需要反复同步信息，人工处理容易漏项、重复操作或缺少审计记录。"],
+      ["Solution", "读取输入、归类任务、识别异常、生成建议动作，并在高风险操作前请求人工确认。"],
+      ["Stack", "MCP tools, Sheets, Email, internal API, queue state, structured logs."],
+      ["Evaluation", "跟踪任务完成率、误报率、人工确认次数、失败恢复路径和审计日志完整性。"],
+      ["Next step", "接入真实业务流程后，用 pilot 数据补充每周节省时间、错误减少比例和人工介入成本。"],
     ],
   },
   {
     eyebrow: "03 / Code Review Agent",
-    title: "代码审查代理",
-    description: "面向工程团队的 PR review agent，重点是风险定位、可操作反馈和测试信号整合。",
+    title: "Risk-focused Code Review Agent",
+    description: "面向工程团队的 PR review agent 模板，重点展示风险定位、可执行反馈和测试信号整合。",
     details: [
-      ["Problem", "代码审查需要快速发现行为回归、遗漏测试和安全风险。"],
-      ["Behavior", "读取 diff、定位风险、生成审查意见并引用文件位置。"],
-      ["Tools", "GitHub API, static analysis, tests, LLM review rubric."],
-      ["Evaluation", "用真实 PR 回放评估命中率、噪声率和可执行性。"],
-      ["Impact", "Template: improve review coverage on high-risk changes by X%."],
+      ["Problem", "代码审查需要快速发现行为回归、遗漏测试、权限问题和高风险边界，但普通摘要很容易制造噪声。"],
+      ["Solution", "读取 diff、定位风险、引用文件位置、输出 review comment，并把测试结果纳入判断。"],
+      ["Stack", "GitHub API, static analysis, test logs, LLM review rubric, inline comments."],
+      ["Evaluation", "用历史 PR 回放评估命中率、噪声率、可执行性和是否遗漏关键风险。"],
+      ["Next step", "接入真实仓库和 review 数据后，补充高风险改动覆盖率、误报率和开发者采纳率。"],
     ],
   },
 ];
@@ -81,17 +81,17 @@ const methods = [
   {
     step: "01",
     title: "Define the job and failure modes",
-    description: "先写清任务边界、成功标准、不可做事项和需要人工确认的动作。",
+    description: "先写清任务边界、成功标准、禁止动作、升级路径，以及哪些步骤必须由人确认。",
   },
   {
     step: "02",
     title: "Design tools as contracts",
-    description: "为工具调用设计输入输出、权限范围、错误处理和审计日志。",
+    description: "为工具调用设计输入输出、权限范围、错误处理、重试策略和审计日志。",
   },
   {
     step: "03",
     title: "Evaluate before scaling",
-    description: "用回放数据、评估集和人工 review 校准 agent，而不是只看 demo 效果。",
+    description: "用回放数据、评估集和人工 review 校准 agent，而不是只看一次 demo 是否顺利。",
   },
 ];
 
@@ -108,7 +108,7 @@ const fits = [
   },
   {
     title: "LLM Application Engineer",
-    description: "构建 RAG、工具调用、评估和结构化输出的业务应用。",
+    description: "构建包含 RAG、工具调用、评估和结构化输出的业务应用。",
   },
   {
     title: "Workflow Automation Engineer",
@@ -164,18 +164,18 @@ export default function Home() {
                   recover from failures, and ship into real products.
                 </p>
                 <p>
-                  我构建的不只是聊天机器人，而是能连接业务系统、执行任务、被评估、被监控、可安全上线的
-                  AI agent。
+                  我构建的不是聊天机器人外壳，而是能连接业务系统、执行任务、
+                  被评估、被监控，并且可以安全上线的 agent 产品体验。
                 </p>
                 <div className="actions">
                   <a className="button primary" href="#work">
-                    查看项目
+                    查看项目模板
                   </a>
                   <a className="button" href="#resume">
-                    查看简历
+                    查看能力匹配
                   </a>
                   <a className="button" href="#contact">
-                    联系合作
+                    联系方式
                   </a>
                 </div>
                 <div className="signal-panel" aria-label="Engineering focus">
@@ -228,7 +228,7 @@ export default function Home() {
             <div className="section-head">
               <h2>Selected Builds</h2>
               <span>
-                高质量占位 case study：不伪造真实数据，但把招聘方需要看的问题、行为、工具、评估和结果结构先搭好。
+                可信 case study 模板：不伪造真实数据，先把招聘方需要看的问题、方案、工具、评估和下一步讲清楚。
               </span>
             </div>
             <div className="work-grid">
@@ -272,7 +272,9 @@ export default function Home() {
             <h2>Build agents like systems, not magic tricks.</h2>
             <div className="about-panel" id="resume">
               <p>
-                我关注 agent 的真实工程问题：任务边界是否清晰，工具权限是否可控，失败是否能恢复，输出是否可验证，以及系统是否能被持续迭代。
+                我关注 agent 的真实工程问题：任务边界是否清晰，工具权限是否可控，
+                失败是否能恢复，输出是否可验证，以及系统是否能被持续迭代。
+                这份作品集先用模板展示我的产品化思路，真实项目链接、量化指标和简历文件可继续替换进来。
               </p>
               <div className="principle-list" aria-label="Engineering principles">
                 {principles.map((principle, index) => (
@@ -298,15 +300,14 @@ export default function Home() {
               </div>
               <div className="actions">
                 <a className="button primary" href="#resume">
-                  View Resume
+                  View Resume Fit
                 </a>
                 <a className="button" href="#contact">
                   Contact
                 </a>
               </div>
               <p className="resume-note">
-                Resume CTA is wired to this section for now. Add <code>resume.pdf</code> later or replace the
-                button with your LinkedIn / Notion resume link.
+                占位说明：后续可把这里替换为 <code>resume.pdf</code>、LinkedIn、Notion 简历或真实项目链接。
               </p>
               <div className="contact-links" id="contact" aria-label="Contact links">
                 <a href="mailto:hello@example.com">
@@ -328,7 +329,7 @@ export default function Home() {
 
         <footer>
           <span>AI Agent Systems Engineer © 2026</span>
-          <span>Designed as a grain-based agent interface.</span>
+          <span>Portfolio content uses placeholders until real projects and links are added.</span>
         </footer>
       </div>
     </>

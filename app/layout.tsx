@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "AI Agent Systems Engineer | Portfolio",
+  title: "AI Agent Product Engineer | Portfolio",
   description:
-    "Portfolio for an AI agent systems engineer building tool-using, observable, production-ready agent workflows.",
+    "A bilingual portfolio for an AI agent product engineer building tool-using, observable, production-ready agent workflows.",
 };
 
 export default function RootLayout({
