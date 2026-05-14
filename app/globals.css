@@ -372,7 +372,7 @@ h1 {
 
 .work-card {
   position: relative;
-  min-height: 34rem;
+  min-height: 39rem;
   overflow: hidden;
   background: rgba(10, 12, 12, 0.78);
   isolation: isolate;
@@ -691,7 +691,7 @@ footer {
   }
 
   .work-card {
-    min-height: 31rem;
+    min-height: 37rem;
   }
 
   .field {
